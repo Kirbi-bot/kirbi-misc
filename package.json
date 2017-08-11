@@ -1,0 +1,18 @@
+{
+  "author": {
+      "name": "@naterchrdsn"
+  },
+  "dependencies": {
+        "unshort": "^1.0.0"
+  },
+  "description": "adds misc commands to Kirbi that dont fall into other categories",
+  "devDependencies": {},
+  "license": "Apache-2.0",
+  "name": "kirbi-misc",
+  "optionalDependencies": {},
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Richardson-Media-House/kirbi-misc.git"
+  },
+  "version": "0.0.1"
+}
