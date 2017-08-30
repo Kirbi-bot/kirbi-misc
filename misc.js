@@ -1,6 +1,6 @@
 const unshort = require('unshort');
 
-module.exports = function (config, auth) {
+module.exports = function (Kirbi) {
 	return {
 		commands: [
 			'lmgtfy',
