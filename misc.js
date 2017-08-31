@@ -13,7 +13,7 @@ module.exports = function (Kirbi) {
 			description: 'Plebs, plz.',
 			process: (msg, suffix, isEdit, cb) => {
 				if (suffix) {
-					cb(`<http://lmgtfy.com/?q=${encodeURI(require("remove-markdown")(suffix))}>`, msg, false, true);
+					cb(`<http://lmgtfy.com/?q=${encodeURI(require('remove-markdown')(suffix))}>`, msg, false, true);
 				}
 			}
 		},
@@ -22,11 +22,14 @@ module.exports = function (Kirbi) {
 			description: 'Unshorten a link.',
 			process: (msg, suffix, isEdit, cb) => {
 				if (suffix) {
-					unshort(suffix, function (err, url) {
+					unshort(suffix, (err, url) => {
 						if (url) {
 							cb(`Original url is: ${url}`, msg);
 						} else {
 							cb('This url can\'t be expanded', msg);
+							if (Kirbi.config.debug) {
+								console.log(err);
+							}
 						}
 					});
 				}
@@ -34,12 +37,16 @@ module.exports = function (Kirbi) {
 		},
 		ping: {
 			description: 'responds pong, useful for checking if bot is alive',
-			process: (msg, suffix, isEdit, cb) => { cb(`${msg.author} pong!`, msg); }
+			process: (msg, suffix, isEdit, cb) => {
+				cb(`${msg.author} pong!`, msg);
+			}
 		},
 		say: {
 			usage: '<message>',
 			description: 'bot says message',
-			process: (msg, suffix, isEdit, cb) => { cb(suffix, msg); }
+			process: (msg, suffix, isEdit, cb) => {
+				cb(suffix, msg);
+			}
 		}
 	};
 };
